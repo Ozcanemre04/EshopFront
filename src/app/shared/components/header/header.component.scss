@@ -1,0 +1,65 @@
+@import "../../../app.component.scss";
+
+header{
+    @include flex(center,space-between);
+    padding: 10px;
+    width: 100%;
+    background-color: $dark-blue;
+    color: $base-color;
+    
+    h1{
+        
+    }
+    nav{
+        padding: 8px;
+        ul{
+           @include flex(center,space-between); 
+            li{
+                cursor: pointer;
+                padding: 10px;
+                @include flex(center,space-between);
+                list-style-type: none;
+                transition: 0.3s;
+                .active{
+                    // text-decoration: underline;
+                    color: $base-color;
+                    .icon{
+                        color: $base-color;
+                    }
+                }
+                a{
+                    @include flex(center,space-between);
+                    color: $light-blue;
+                    text-decoration: none;
+                    transition: 0.1s ease;
+                    &:hover{
+                        cursor: pointer;
+                        color: $base-color;
+                    }
+                    .icon{
+                         margin-right: 2px;
+                    }
+            }
+            p{
+                margin: 0;
+                align-self: flex-end;
+            }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+  header{
+    nav{
+        ul{
+            li{
+                p{
+                    display: none;
+                }
+            }
+        }
+    }
+  }
+}

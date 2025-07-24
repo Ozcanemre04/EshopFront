@@ -1,0 +1,30 @@
+<section>
+    <div class="container">
+        <h2>Log IN</h2>
+        <form [formGroup]="loginForm">
+             
+                 <mat-form-field class="email-container">
+                     <mat-label>Email</mat-label>
+                     <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                     <mat-error class="error" *ngIf="loginForm.controls.email.errors?.['required']">email is required</mat-error>
+                     <mat-error class="error" *ngIf="loginForm.controls.email.errors?.['email']">invalid Email</mat-error>
+                     <mat-error class="error" *ngIf="error && loginForm.controls.email.errors?.['apiError']">{{error}}</mat-error>
+                 </mat-form-field>
+              
+           
+                <mat-form-field class="password-container">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput name="password" placeholder="password" formControlName="password">
+                    <mat-error class="error" *ngIf="loginForm.controls.password.errors?.['required']">password is required</mat-error>
+                    <mat-error class="error" *ngIf="loginForm.controls.password.errors?.['minlength']?.['actualLength']<5 &&!loginForm.controls.password.errors?.['required'] &&!loginForm.controls.password.errors?.['apiError']">
+                        password must be at least 5 characters long
+                    </mat-error>
+                    <mat-error class="error" *ngIf="error && loginForm.controls.password.errors?.['apiError']">wrong password</mat-error>
+                </mat-form-field>
+                
+
+            <button (click)="OnLogin()" [disabled]="!loginForm.valid">Log In</button>
+        </form>
+        <a href="/Auth/register">create new account</a>
+    </div>
+</section>

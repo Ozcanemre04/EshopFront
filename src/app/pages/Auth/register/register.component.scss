@@ -1,0 +1,72 @@
+@import "../../../app.component.scss";
+@import "../../../components/Home/search/search.component.scss";
+
+section {
+  height: 82vh;
+  @include flex(center, center);
+
+  .container {
+    @include flex(center, space-between);
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 4px 4px 8px 2px $dark-blue;
+    padding: 10px;
+    border-radius: 10px;
+    height: fit-content;
+    h2 {
+      color: $dark-blue;
+    }
+    a {
+      color: $blue;
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+    form {
+      @include flex(stretch, space-between);
+      flex-direction: column;
+      gap: 20px;
+      .error {
+        text-align: center;
+      }
+      .fullname {
+        @include flex(center, space-between);
+        gap: 10px;
+      }
+
+      button {
+        width: 50%;
+        align-self: center;
+        align-content: flex-start;
+        @include GlobalButton();
+        &:disabled {
+          background-color: $light-blue;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  section {
+    height: 90vh;
+    align-items: flex-start;
+    margin-top: 20px;
+    .container {
+      width: 80%;
+      form {
+        width: 100%;
+        .fullname {
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
+          justify-content: stretch;
+          .firstname-container,
+          .lastname-container {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

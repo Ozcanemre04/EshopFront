@@ -1,0 +1,10 @@
+<section>
+    <div class="container">
+      <div class="category" id="All" (click)="emitCategoryEvent(All.name)" [ngClass]="currentCategory===All.name ? 'isActive':''">
+        <p>All</p>
+      </div>
+      <div class="category" *ngFor="let c of category$ | async;trackBy:trackCategory" (click)="emitCategoryEvent(c.name)" [ngClass]="currentCategory===c.name ? 'isActive':''">
+        <p>{{c.name}}</p>
+      </div>
+    </div>
+</section>

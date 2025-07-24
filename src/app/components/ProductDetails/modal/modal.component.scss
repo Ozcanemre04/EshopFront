@@ -1,0 +1,30 @@
+@import '../../../app.component.scss';
+
+.update-container{
+  height: calc(100% - 20px);
+  background-color: $base-color;
+  @include flex(center,flex-start);
+  flex-direction: column;
+  padding: 10px;
+  overflow: hidden;
+  color: $dark-blue;
+  form{
+      @include flex(center,center);
+      gap: 10px;
+      flex-direction: column;
+      width: 90%;
+      textarea{
+        height: 100px;
+        width: 100%;
+        border:none;
+        outline: none;
+        border-radius: 5px;
+        padding: 5px;
+
+      }
+      button{
+        width: 100px;
+        @include GlobalButton();
+      }
+  }
+}

@@ -1,0 +1,81 @@
+@import "../../../app.component.scss";
+
+section {
+  margin-top: 20px;
+
+  .container {
+    @include flex(center, space-between);
+    height: 600px;
+    gap: 10px;
+    padding: 10px;
+    color: $dark-blue;
+
+    .img-container {
+      flex-basis: 40%;
+      height: 100%;
+      @include flex(center,center);
+      img {
+        border-radius: 10px;
+        width: 100%;
+        // height: 100%;
+        aspect-ratio: 1;
+        object-fit: scale-down;
+        display: block;
+        mix-blend-mode: darken;
+      }
+    }
+
+    .info-container {
+      padding: 10px;
+      flex-basis: 60%;
+      display: flex;
+      @include flex(flex-start, center);
+      flex-direction: column;
+      height: fit-content;
+      gap: 10px;
+      b {
+        padding-left: 8px;
+      }
+      .description {
+        h2 {
+          margin: 0;
+        }
+      }
+
+      .button-container {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  section {
+    .container {
+      flex-direction: column;
+      height: fit-content;
+      .img-container {
+        width: 90%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .info-container {
+        width: 90%;
+        align-items: center;
+        h2{
+          text-align: center;
+        }
+        b {
+          padding: 0;
+        }
+        .description {
+          text-align: center;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

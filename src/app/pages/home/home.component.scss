@@ -1,0 +1,12 @@
+@import "../../app.component.scss";
+.container-search-sort{
+    padding: 10px;
+    @include flex(center,center);
+    gap: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container-search-sort{
+        flex-direction: column;
+    }
+}

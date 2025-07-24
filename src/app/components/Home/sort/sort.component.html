@@ -1,0 +1,15 @@
+
+<div class="sort-container">
+  <mat-form-field class="form">
+    <mat-label>Sort</mat-label>
+    <mat-select class="select" panelClass="panel" matNativeControl required [(value)]="selectedSort" (selectionChange)="OnSelect()" >
+         <mat-option *ngFor="let opt of optionlist" [value]="opt">
+        {{ opt.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+
+
+  

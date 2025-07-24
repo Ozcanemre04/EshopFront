@@ -1,0 +1,28 @@
+<section class="product-section">
+    <div class="product-container">
+        <ng-container *ngFor="let p of products;trackBy:trackProdcuts" >
+            <div class="product" [id]="p.ratings">
+                <a routerLink="/product-details/{{p.id}}" class="img-link">
+                    <img  [ngSrc]="p.image" width="250" height="200" [alt]="p.name" srcset="">
+                </a>
+                <div class="info-container">
+                    <div class="info-text">
+                        <a routerLink="/product-details/{{p.id}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                            <p class="name">{{p.name}}</p>
+                        </a>
+                        <div class="star-container">
+                            <app-ratings [productRatings]="p.ratings"></app-ratings>
+                        </div>
+                        <p class="price">{{p.price}}$</p>
+                    </div>
+                    <div class="button-container">
+                        <app-add-to-basket class="button" [product]="p"></app-add-to-basket>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="paginator-container" *ngIf="products.length>0">
+        <mat-paginator class="pagination" [pageSize]="pageSize" [pageIndex]="currentpage" [length]="totalRecords" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange($event)"></mat-paginator>
+    </div>
+</section>

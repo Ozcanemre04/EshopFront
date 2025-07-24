@@ -1,0 +1,35 @@
+<section>
+<h2>Reviews</h2>
+<div class="add-review">
+    <form action="">
+        <app-form-ratings [starSubject]="starSubject" (starValueEmitter)="getStarValue($event)"></app-form-ratings>
+        <label for="">Add Review</label>
+        <textarea name="" id="" [(ngModel)]="reviewCreate.reviews" name="textarea"></textarea>
+        <button (click)= submitReviews()>add</button>
+        
+    </form>
+
+</div>
+<div class="review-container">
+    <div class="review" *ngFor="let review of reviews$ | async;trackBy:trackReview">
+        <div class="review-side">
+            <div class="review-header">
+                <mat-icon class="user" fontIcon="person"></mat-icon>
+                <app-ratings [productRatings]="review.stars"></app-ratings>
+            </div>
+                <div class="review-text">
+                    <p>Reviewed on {{review.createdDate |date}}</p>
+                    <p>{{review.reviews}}</p>
+                </div>
+            </div>
+            <div class="button-side">
+                <button *ngIf="userid===review.userId" (click)="deleteReview(review.id)">
+                     <mat-icon  fontIcon="delete"></mat-icon>
+                </button>
+                <button *ngIf="userid===review.userId" (click)="openDialog(review.reviews,review.stars,review.id)">
+                    <mat-icon fontIcon="edit"></mat-icon>
+                </button>
+            </div>
+    </div>
+</div>
+</section>

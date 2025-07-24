@@ -1,0 +1,34 @@
+@import "../../../app.component.scss";
+
+.mat-mdc-select-value {
+  color: $dark-blue !important;
+}
+
+.form {
+  width: 264px;
+}
+.panel.mat-mdc-select-panel {
+  background-color: #a2a8d3;
+}
+
+.mat-mdc-select {
+  color: #113f67;
+  --mat-select-enabled-arrow-color: #113f67;
+  --mat-select-focused-arrow-color: #38598b;
+}
+
+.mat-mdc-option {
+  --mat-option-selected-state-label-text-color: white;
+  --mat-option-hover-state-label-text-color: white;
+  --mat-option-selected-state-layer-color: #113f67;
+  --mat-option-hover-state-layer-color: #38598b;
+  color: #113f67 !important;
+  &:hover {
+    color: white !important;
+  }
+}
+
+.mat-pseudo-checkbox-checked.mat-pseudo-checkbox::after,
+.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox::after {
+  border-color: white !important;
+}

@@ -1,0 +1,108 @@
+@import "../../../app.component.scss";
+
+
+.product-section {
+    padding: 10px;
+  .paginator-container{
+    margin-top: 10px;
+    .pagination {
+      background-color: $base-color;
+    }
+
+  }
+
+  .product-container {
+    @include flex(center, center);
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .product {
+      @include flex(flex-start, flex-start);
+      flex-direction: column;
+      gap: 4px;
+      height: 450px;
+      width: 250px;
+      border: 1px solid #38598b8c;
+      border-radius: 10px;
+
+      .img-link {
+        width: 100%;
+        img {
+          width: 100%;
+          border-radius: 10px 10px 0 0;
+          height: 200px;
+          flex-shrink: 0;
+          object-fit:contain;
+          mix-blend-mode:darken;
+
+        }
+      }
+
+      .info-container {
+        padding: 5px 10px;
+        @include flex(flex-start, space-between);
+        flex-direction: column;
+        height: 100%;
+
+        .info-text {
+          @include flex(flex-start, flex-start);
+          gap: 5px;
+          flex-direction: column;
+
+          .name {
+            @include Webkit-box(2, 40px, 0);
+          }
+
+          a {
+            text-decoration: none;
+            color: $blue;
+
+            &:hover {
+              color: $dark-blue;
+            }
+          }
+
+          .price {
+            @extend a;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .product-section {
+    .product-container {
+      .product {
+        @include flex(stretch, space-between);
+        flex-direction: row;
+        width: 90%;
+        height: 200px;
+        gap: 5px;
+
+        .img-link {
+          height: 100%;
+          width: 40%;
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px 0 0 10px;
+          }
+        }
+
+        .info-container {
+          padding: 2px 5px 2px 5px;
+          width: 60%;
+          gap: 0;
+          justify-content: center;
+
+          a {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

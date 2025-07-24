@@ -1,0 +1,47 @@
+@import "../../../app.component.scss";
+@import "../../../components/Home/search/search.component.scss";
+
+section {
+  margin-top: 10px;
+  height: 80vh;
+  @include flex(center, center);
+  .container {
+    @include flex(center, space-between);
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 4px 4px 8px 2px $dark-blue;
+    padding: 10px;
+    border-radius: 10px;
+    height: fit-content;
+    h2 {
+      color: $dark-blue;
+    }
+    a {
+      color: $blue;
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+    form {
+      @include flex(center, space-between);
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      .email-container,
+      .password-container {
+        .error {
+          text-align: center;
+        }
+      }
+
+      button {
+        margin-top: 20px;
+        width: 50%;
+        @include GlobalButton();
+        &:disabled {
+          background-color: $light-blue;
+        }
+      }
+    }
+  }
+}

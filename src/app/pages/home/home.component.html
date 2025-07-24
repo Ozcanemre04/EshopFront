@@ -1,0 +1,7 @@
+<app-category (CategoryEvent)="handleCategoryEvent($event)"></app-category>
+<section class="container-search-sort">
+<app-search (SearchEvent)="handleSearchEvent($event)"></app-search>
+<app-sort (SortEvent)="handleSortEvent($event)"></app-sort>
+</section> 
+<app-products [category]="category" [search]="search" [sort]="sort"></app-products>
+

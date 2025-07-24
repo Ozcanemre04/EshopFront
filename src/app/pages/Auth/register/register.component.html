@@ -1,0 +1,53 @@
+<section>
+    <div class="container">
+        <h2>Register</h2>
+        <form [formGroup]="registerForm">
+            <div class="fullname">
+              <mat-form-field class="lastname-container">
+                <mat-label>Lastname</mat-label>
+                <input type="text" matInput formControlName="lastName" placeholder="Your Lastname">
+                <mat-error class="error" *ngIf="getLastNameError()?.['required']">Lastname is required</mat-error>
+                <mat-error class="error" *ngIf="(getLastNameError()?.['minlength']?.['actualLength']<3 ||getLastNameError()?.['maxlength']?.['actualLength'])&&!getLastNameError()?.['required']&&!getLastNameError()?.['pattern']">Please enter between 3 and 20 characters.</mat-error>
+                <mat-error class="error" *ngIf="getLastNameError()?.['pattern']">Must start with a capital letter and contain only letters</mat-error>
+              </mat-form-field>  
+
+              <mat-form-field class="firstname-container">
+                <mat-label>Firstname</mat-label>
+                <input type="text" matInput formControlName="firstName" placeholder="your firstname">
+                <mat-error class="error" *ngIf="getFirstNameError()?.['required']">Firstname is required</mat-error>
+                <mat-error class="error" *ngIf="(getFirstNameError()?.['minlength']?.['actualLength']<3 ||getFirstNameError()?.['maxlength']?.['actualLength'])&&!getFirstNameError()?.['required']&&!getFirstNameError()?.['pattern']">Please enter between 3 and 20 characters.</mat-error>
+                <mat-error class="error" *ngIf="getFirstNameError()?.['pattern']">Must start with a capital letter and contain only letters</mat-error>
+              </mat-form-field>
+            </div>
+
+            <mat-form-field class="username-container">
+                <mat-label>Username</mat-label>
+                <input type="text" matInput formControlName="username" placeholder="write your username">
+                <mat-error class="error" *ngIf="getUsernameError()?.['required']">username is required</mat-error>
+                <mat-error class="error" *ngIf="(getUsernameError()?.['minlength']?.['actualLength']<3 ||getUsernameError()?.['maxlength']?.['actualLength'])&&!getUsernameError()?.['required']&&!getUsernameError()?.['pattern']&&!getUsernameError()?.['apiError']">Please enter between 3 and 20 characters.</mat-error>
+                <mat-error class="error" *ngIf="getUsernameError()?.['pattern']">Must start with a capital letter and contain only letters and numbers</mat-error>
+                <mat-error class="error" *ngIf="error&&registerForm.controls.username.errors?.['apiError']">{{error}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="email-container">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                <mat-error class="error" *ngIf="registerForm.controls.email.errors?.['required']">email is required</mat-error>
+                <mat-error class="error" *ngIf="registerForm.controls.email.errors?.['email']">invalid Email</mat-error>
+                <mat-error class="error" *ngIf="error&&registerForm.controls.email.errors?.['apiError']">{{error}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="password-container">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput name="password" placeholder="password" formControlName="password">
+                <mat-error class="error" *ngIf="registerForm.controls.password.errors?.['required']">password is required</mat-error>
+                <mat-error class="error" *ngIf="registerForm.controls.password.errors?.['minlength']?.['actualLength']<5 &&!registerForm.controls.password.errors?.['required']">
+                    password must be at least 5 characters long
+                </mat-error>
+            </mat-form-field>
+
+            <button (click)="OnRegister()" [disabled]="!registerForm.valid">Register</button>
+        </form>
+        <a href="/Auth/login">I have already an account</a>
+    </div>
+</section>

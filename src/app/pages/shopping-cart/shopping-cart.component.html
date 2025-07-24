@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+        <div class="cart-title">
+            <h2>Shopping Basket</h2>
+            <p>Price</p>
+        </div>
+        <hr>
+        <div class="product-container">
+            <div class="product" *ngFor="let product of products$|async;trackBy:trackCart">
+                
+                    <div class="image">
+                        <img [ngSrc]="product.image" width="300" height="300" alt="" srcset="">
+                    </div>
+                    <div class="name-container">
+                        <h2>{{product.productName}}</h2>
+                        <b *ngIf="product.stock>0">In Stock</b>
+                        <div class="quantity-container" >
+                            <button (click)="decreaseQuantity(product)">-</button>
+                            <p>{{product.quantity}}</p>
+                            <button (click)="increaseQuantity(product)">+</button>
+                        </div>
+                    </div>
+                    <div class="price-container">
+                        <b>{{product.totalPrice}}$</b>
+                        <mat-icon class="delete" fontIcon="delete" (click)="removeProduct(product)"></mat-icon>
+                    </div>
+                
+            </div>
+        </div>
+        <div class="total-price" *ngIf="(totalPrice$|async)>0">
+            <p>Total Price: {{totalPrice$|async}}$</p>
+            <button [disabled]="(totalPrice$|async)===0" (click)="payNow()">Checkout</button>
+        </div>
+        <div class="empty" *ngIf="(totalPrice$|async)===0">
+            <h2>Cart empty</h2>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,168 @@
+@import "../../app.component.scss";
+
+b,
+p {
+  font-size: clamp(0.75rem, 0.702rem + 0.241vw, 1rem);
+}
+section {
+  color: $dark-blue;
+  .container {
+    padding: 10px;
+    margin-inline: auto;
+    width: 90%;
+
+    .cart-title {
+      width: 100%;
+      @include flex(center, center);
+      h2 {
+        flex-basis: 90%;
+      }
+      p {
+        align-self: flex-end;
+        flex-basis: 5%;
+        margin-bottom: 0;
+        text-align: center;
+      }
+    }
+    .empty{
+      width: 100%;
+      h2{
+        text-align: center;
+      }
+    }
+    .total-price {
+      width: 100%;
+      @include flex(center,center);
+      flex-direction: column;
+      p {
+        text-align: center;
+        font-weight: bolder;
+      }
+      button{
+        margin-inline: auto;
+        @include GlobalButton();
+      }
+    }
+    .product-container {
+      @include flex(center, center);
+      flex-direction: column;
+      width: 100%;
+      .product {
+        width: 100%;
+        border-radius: 10px;
+        background-color: white;
+        margin-bottom: 10px;
+        padding: 5px;
+        border-bottom: 0.5px solid grey;
+        @include flex(center, space-between);
+        gap: 2%;
+        .image {
+          flex-basis: 20%;
+          img {
+            border-radius: 10px;
+            height: 200px;
+            width: 100%;
+            object-fit:contain;
+            mix-blend-mode:darken;
+          }
+        }
+        .name-container {
+          flex-basis: 60%;
+          @include flex(flex-start, center);
+          flex-direction: column;
+          height: 200px;
+          gap: 10px;
+          padding: 5px;
+          h2 {
+            font-size: clamp(0.875rem, 0.755rem + 0.602vw, 1.5rem);
+            @include Webkit-box(3, 96px, 5px);
+          }
+          .quantity-container {
+            border: 3px solid $dark-blue;
+            border-radius: 10px;
+            @include flex(center, flex-start);
+            height: 40px;
+            button {
+              height: 100%;
+              width: 30px;
+              border: none;
+              padding: 5px;
+              font-size: 20px;
+              font-weight: bold;
+              color: $dark-blue;
+              background-color: $light-blue;
+              cursor: pointer;
+              &:nth-of-type(1) {
+                border-radius: 7px 0 0 7px;
+              }
+              &:nth-of-type(2) {
+                border-radius: 0px 7px 7px 0px;
+              }
+            }
+            p {
+              width: 30px;
+              height: 100%;
+              text-align: center;
+              color: $dark-blue;
+              margin-bottom: 0;
+              justify-self: center;
+              line-height: 40px;
+            }
+          }
+        }
+        .price-container {
+          flex-basis: 10%;
+          @include flex(center, center);
+          flex-direction: column;
+          .delete {
+            color: $dark-blue;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 500px) {
+  section {
+    .container {
+      .product-container {
+        .product {
+          .image {
+            flex-basis: 35%;
+          }
+          .name-container {
+            flex-basis: 50%;
+            .quantity-container {
+              height: 30px;
+              button {
+                width: 20px;
+                padding: 0;
+              }
+              p {
+                width: 20px;
+                line-height: 30px;
+              }
+            }
+          }
+          .price-container {
+            flex-basis: 15%;
+          }
+        }
+      }
+    }
+  }
+}

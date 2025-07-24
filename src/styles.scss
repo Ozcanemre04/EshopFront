@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import "/src/app/shared/sass/variable.scss";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: $base-color;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font-family: Roboto "Helvetica Neue", sans-serif;
+}
+.mat-mdc-paginator {
+  display: flex;
+  justify-content: center !important;
+}
+
+.mat-mdc-paginator-container {
+  justify-content: center !important;
+}
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: #a2a8d3;
+  //label
+  --mdc-filled-text-field-label-text-color: #113f67;
+  --mdc-filled-text-field-focus-label-text-color: #113f67;
+  //input
+  --mdc-filled-text-field-input-text-color: #113f67;
+  --mdc-filled-text-field-input-text-placeholder-color: #113f67;
+  //bottom border
+  --mdc-filled-text-field-active-indicator-color: #38598b;
+  --mdc-filled-text-field-hover-active-indicator-color: #38598b;
+  --mdc-filled-text-field-focus-active-indicator-color: #113f67;
+  --mdc-filled-text-field-active-indicator-height: 3px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

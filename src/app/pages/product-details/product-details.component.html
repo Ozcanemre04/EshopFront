@@ -1,0 +1,13 @@
+<ng-container *ngIf="error!=''">
+    <main class="error-page">
+        <h1>Page Not found</h1>
+        <h2>Go to Home Page or any other valid route</h2>
+    </main>
+</ng-container>
+<ng-container *ngIf="error===''">
+    <main>
+        <app-product (errorEvent)="getError($event)"></app-product>
+        <hr>
+        <app-reviews></app-reviews>
+    </main>
+</ng-container>

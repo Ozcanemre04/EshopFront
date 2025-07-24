@@ -1,0 +1,24 @@
+
+    <section>
+        <div *ngIf="product" class="container">
+            <div class="img-container">
+                <img *ngIf="product.image" [ngSrc]="product.image!" width="400" height="400" [alt]="product.name" priority>
+            </div>
+            <div class="info-container">
+                <h2>{{product.name}}</h2>
+                <app-ratings [productRatings]="product.ratings"></app-ratings>
+                <b>{{product.price}}$</b>
+                <b *ngIf="product.stock>0; else empty">In Stock</b>
+                <ng-template #empty>
+                    <b>Unavailable</b>
+                </ng-template>
+                <div class="description">
+                    <h2>About this item</h2>
+                    <p>{{product.description}}</p>
+                </div>
+                <app-add-to-basket class="button-container" [product]="product"></app-add-to-basket>
+            </div>
+        </div>
+    </section>
+
+

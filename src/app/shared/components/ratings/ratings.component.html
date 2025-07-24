@@ -1,0 +1,3 @@
+<ng-container *ngFor="let s of star;">
+<mat-icon [fontIcon]="getstarIcon(productRatings,s)"  [ngClass]="checked(productRatings)>=s?'checked':'not-checked'"></mat-icon>
+ </ng-container>

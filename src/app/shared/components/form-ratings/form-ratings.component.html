@@ -1,0 +1,5 @@
+<div  class="star-container">
+            <ng-container *ngFor="let s of star$|async">
+                <mat-icon fontIcon="star" (click)="selectStar(s)" [class]="s.checked?'checked':'not-checked'"></mat-icon>
+            </ng-container>
+</div>

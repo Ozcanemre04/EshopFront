@@ -1,0 +1,9 @@
+<div class="form-container">
+    <form>
+        <mat-form-field>
+            <mat-label>Product Name</mat-label>
+            <input matInput placeholder="Search Product" type="text" [(ngModel)]="search" name="search">
+        </mat-form-field>
+        <button class="search-button" (click)="search_product()"><mat-icon fontIcon="search"></mat-icon></button>
+    </form>
+</div>

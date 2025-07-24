@@ -1,0 +1,11 @@
+
+    <div class="update-container">
+        <h2>Update Review</h2>
+        <form action="">
+               <app-form-ratings [starSubject]="starSubject" (starValueEmitter)="getStarValue($event)"></app-form-ratings>
+                <label  for="">Update</label>  
+               <textarea name="" id="" [(ngModel)]="reviewUpdate.reviews" name="textarea"></textarea>
+               <button (click)= UpdateReview()>update</button> 
+           </form>
+    </div>
+

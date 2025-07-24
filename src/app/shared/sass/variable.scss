@@ -1,0 +1,34 @@
+$base-color: #e7eaf6;
+$light-blue: #a2a8d3;
+$blue: #38598b;
+$dark-blue: #113f67;
+
+@mixin flex($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin Webkit-box($line-clamp, $height, $mb) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-clamp;
+  overflow: hidden;
+  height: $height;
+  margin-bottom: $mb;
+}
+@mixin GlobalButton() {
+  background-color: $blue;
+  color: $base-color;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    background-color: $dark-blue;
+  }
+}
+
+@mixin font() {
+  font-size: clamp(0.625rem, 0.5739rem + 0.2727vw, 1rem);
+}

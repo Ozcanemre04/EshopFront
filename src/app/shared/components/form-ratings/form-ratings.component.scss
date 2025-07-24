@@ -1,0 +1,12 @@
+@import "../../../app.component.scss";
+.star-container{
+        @include flex(center,flex-start);
+        .not-checked{
+            color: $dark-blue;
+            cursor: pointer;
+        }
+        .checked{
+            @extend .not-checked;
+            color: yellow;
+}
+}

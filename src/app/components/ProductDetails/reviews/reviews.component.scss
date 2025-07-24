@@ -1,0 +1,98 @@
+@import "../../../app.component.scss";
+section {
+  width: 80%;
+  margin-inline: auto;
+  padding: 10px;
+
+  h2 {
+    text-align: center;
+  }
+  .add-review {
+    height: 300px;
+    form {
+      @include flex(center, flex-start);
+      gap: 10px;
+      flex-direction: column;
+      .star-container {
+        @include flex(center, flex-start);
+        .not-checked {
+          color: $dark-blue;
+          cursor: pointer;
+        }
+        .checked {
+          @extend .not-checked;
+          color: yellow;
+        }
+      }
+      textarea {
+        width: 95%;
+        height: 100px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+      }
+      button {
+        width: 100px;
+        @include GlobalButton();
+      }
+    }
+  }
+  .review-container {
+    .review {
+      border: 1px solid $dark-blue;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      @include flex(flex-start, space-between);
+      .review-side {
+        flex-basis: 80%;
+        .review-header {
+          @include flex(center, flex-start);
+          gap: 10px;
+          .user {
+            border: 1px solid $dark-blue;
+            padding: 10px;
+            border-radius: 50%;
+          }
+        }
+        .review-text {
+          flex-basis: 80%;
+          margin-top: 10px;
+          p {
+            width: 90%;
+            height: 100%;
+            word-break: break-all;
+            color: $dark-blue;
+            &:nth-of-type(1) {
+              font-style: italic;
+              font-weight: lighter;
+            }
+          }
+        }
+      }
+      .button-side {
+        align-self: center;
+        @include flex(center, center);
+        flex-direction: column;
+        button {
+          background-color: $base-color;
+          color: $blue;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          outline: none;
+          &:hover {
+            color: $dark-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  section {
+    width: 90%;
+  }
+}

@@ -1,0 +1,8 @@
+@import "../../app.component.scss";
+.error-page{
+  @include flex(center,center);
+  flex-direction: column;
+  color: $dark-blue;
+  height: 80vh;
+  text-align: center;
+}

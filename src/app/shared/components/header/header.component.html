@@ -1,0 +1,32 @@
+<header>
+    <h1>Eshop</h1>
+    <nav>
+        <ul>
+            <li>
+                <a routerLink="/"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <mat-icon class="icon" fontIcon="home"></mat-icon>
+                    <p>Home</p>
+                </a>
+            </li>
+            <li *ngIf="!connected">
+                <a routerLink="/Auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <mat-icon fontIcon="person"></mat-icon>
+                    <p>Login</p>
+                </a>
+            </li>
+            <li *ngIf="connected">
+                    <mat-icon  fontIcon="logout" (click)="Onlogout()"></mat-icon>
+                    <p>Logout</p>
+            </li>
+            
+            
+            <li>
+                <a routerLink="/shopping-cart" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                    <mat-icon *ngIf="connected" class="icon" fontIcon="shopping_cart" [matBadge]="count$|async" matBadgeSize="small"></mat-icon>
+                    <mat-icon *ngIf="!connected" class="icon" fontIcon="shopping_cart"></mat-icon>
+                    <p>Basket</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
