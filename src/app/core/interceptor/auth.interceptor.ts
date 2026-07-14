@@ -7,7 +7,6 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { catchError, Observable, switchMap, throwError } from 'rxjs';
-import { jwtDecode, JwtPayload } from 'jwt-decode';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
 import { ILoginResponse } from 'src/app/interface/Auth/Login/ILoginResponse';
 
@@ -55,6 +54,7 @@ export class AuthInterceptor implements HttpInterceptor {
          else {
           console.log(error.message);
           if(typeof error.error==="object"&&error.status!=401){
+            console.log(error.error);
             errorMessage=error.error.map((x:{errorMessage:string})=>x.errorMessage)?.[0]
           }
           else if(error.status===401){

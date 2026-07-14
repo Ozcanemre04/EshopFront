@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { Observable, switchMap } from 'rxjs';
 import { IProductInBasket } from 'src/app/interface/Basket/IProductInBasket';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

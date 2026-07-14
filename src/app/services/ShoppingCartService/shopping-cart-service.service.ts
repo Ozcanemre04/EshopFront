@@ -3,10 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, switchMap, tap, throwError } from 'rxjs';
 import { IBasket } from 'src/app/interface/Basket/IBasket';
 import { IProductInBasket } from 'src/app/interface/Basket/IProductInBasket';
-import { environment } from 'src/environments/environment.development';
-import { AuthService } from '../AuthService/auth.service';
-import { loadStripe, Stripe } from '@stripe/stripe-js';
-import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root',

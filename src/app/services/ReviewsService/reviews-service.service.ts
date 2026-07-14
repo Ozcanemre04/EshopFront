@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { IReview } from 'src/app/interface/Reviews/IReview';
 import { IReviewCreate } from 'src/app/interface/Reviews/IReviewCreate';
 import { IReviewUpdate } from 'src/app/interface/Reviews/IReviewUpdate';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'

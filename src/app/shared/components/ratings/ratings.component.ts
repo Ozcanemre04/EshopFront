@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { IProduct } from 'src/app/interface/Product/IProduct';
+
 
 @Component({
   selector: 'app-ratings',
